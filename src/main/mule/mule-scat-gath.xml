@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="6bcc269d-a243-48ce-a3d5-f3a5ace05fcb" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="mule-scat-gathFlow" doc:id="d280afa7-92bc-4f45-9682-d92b438dca88" >
+		<http:listener doc:name="Listener" doc:id="6eeb9c7f-f7ce-44fc-89cf-c0a991c154be" config-ref="HTTP_Listener_config" path="/scatgath" allowedMethods="GET"/>
+		<set-payload value="at store" doc:name="Set Payload" doc:id="76e5943c-da8f-450b-9f56-2b3d1b0b9d90" />
+		<scatter-gather doc:name="Scatter-Gather" doc:id="9feacc3e-5651-43ee-8961-cc52ef153885" >
+			<route >
+				<ee:transform doc:name="Transform Message" doc:id="dad8f1ee-511b-4ede-a5b5-ae1d4d220aa2" >
+					<ee:message >
+						<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+"First Customer " ++ payload]]></ee:set-payload>
+					</ee:message>
+				</ee:transform>
+			</route>
+			<route >
+				<ee:transform doc:name="Transform Message" doc:id="745e9a3d-27c6-4666-a0b1-aaed09d4f924" >
+					<ee:message >
+						<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+"Second Customer " ++ payload]]></ee:set-payload>
+					</ee:message>
+				</ee:transform>
+			</route>
+			<route >
+				<ee:transform doc:name="Transform Message" doc:id="8c318a18-7f11-4733-81ab-2977e027be4d" >
+					<ee:message >
+						<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+"Third Customer " ++ payload]]></ee:set-payload>
+					</ee:message>
+				</ee:transform>
+			</route>
+		</scatter-gather>
+		<ee:transform doc:name="Transform Message" doc:id="c090c9bc-b479-4623-9a1b-c54c4ccee2b0" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<logger level="INFO" doc:name="Logger" doc:id="464304f0-2005-447c-a413-c446faf95e84" />
+	</flow>
+</mule>
