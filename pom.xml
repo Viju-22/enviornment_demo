@@ -35,7 +35,7 @@
 							<muleVersion>4.3.0</muleVersion>
 							<username>OssomVictory2</username>
 							<password>Vijay@1999</password>
-							<applicationName>BuildSonarDeploy</applicationName>
+							<applicationName>BuildSonarDeploy2</applicationName>
 							<environment>Sandbox</environment>
 							<businessGroup>MuleSoft</businessGroup>
 							<workers>1</workers>
