@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>d00fa00a-dbd0-4f71-9676-1f95d2eba6e3</groupId>
@@ -9,7 +11,7 @@
 
 	<name>scattergather</name>
 
-	<description/>
+	<description />
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -34,9 +36,9 @@
 					<cloudHubDeployment>
 						<uri>https://anypoint.mulesoft.com</uri>
 						<muleVersion>4.3.0</muleVersion>
-						<username>OssomVictory3</username>
-						<password>Vijay@1999</password>
-						<applicationName>BuildSonarDeploy2</applicationName>
+						<username>${anypoint.userName}</username>
+						<password>${anypoint.password}</password>
+						<applicationName>BuildSonarDeploy</applicationName>
 						<environment>Sandbox</environment>
 						<businessGroup>MuleSoft</businessGroup>
 						<workers>1</workers>

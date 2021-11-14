@@ -18,9 +18,8 @@ pipeline
    }
     stage('Deploy Application To Mulesoft Cloudhub'){
     steps{
-    withMaven(maven : 'maven_online'){
-    bat 'mvn deploy -DmuleDeploy'
-    }
+		bat 'mvn package deploy -DmuleDeploy -Danypoint.userName=OssomVictory3 -Danypoint.password=Viju@1999'
+		}
    }
    }
 }
