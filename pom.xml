@@ -38,8 +38,8 @@
 					<cloudHubDeployment>
 						<uri>https://anypoint.mulesoft.com</uri>
 						<muleVersion>4.3.0</muleVersion>
-						<username>${anypoint.userName}</username>
-						<password>${anypoint.password}</password>
+						<username>OssomVictory4</username>
+						<password>Capg@1999</password>
 						<applicationName>BuildSonarDeployVijay1</applicationName>
 						<environment>Sandbox</environment>
 						<businessGroup>MuleSoft</businessGroup>
