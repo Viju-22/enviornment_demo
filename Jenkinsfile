@@ -6,7 +6,7 @@ pipeline
         steps{
         bat 'mvn clean install'
         }
-       
+      
         }
         
         stage('SonarQube Testing'){
@@ -17,9 +17,11 @@ pipeline
        
         stage('Deploy Application To Mulesoft '){
         steps{
-        bat 'mvn package deploy -DmuleDeploy -Danypoint.userName=Credential1_USR -Danypoint.password=Credential1_PSW'
+		configFileProvider([configFile(fileId: 'e3590969-51e7-48ca-948d-8e3d73287173', variable: 'MAVEN_GLOBAL_SETTINGS')])
+		{
+        bat 'mvn package deploy -DmuleDeploy'
         }
-       
+        }
         }
        
    
