@@ -17,7 +17,7 @@ pipeline
        
         stage('Deploy Application To Mulesoft '){
         steps{
-        bat 'mvn package deploy -DmuleDeploy'
+        bat 'mvn package deploy -DmuleDeploy -Danypoint.userName=OssomVictory4 -Danypoint.password=Capg@1999'
         }
        
         }
