@@ -4,7 +4,7 @@ pipeline
     
     environment{
         
-        userName=credentials('UserName')
+        username=credentials('UserName')
         password=credentials('Password')
     }
         
@@ -24,7 +24,7 @@ pipeline
        
         stage('Deploy Application To Mulesoft '){
         steps{
-            bat 'mvn package deploy -DmuleDeploy -Danypoint.userName=${userName} -Danypoint.password=${password}'
+            bat 'mvn package deploy -DmuleDeploy -Danypoint.userName=${username} -Danypoint.password=${password}'
         }
         
         }
