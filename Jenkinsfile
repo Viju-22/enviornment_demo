@@ -17,11 +17,9 @@ pipeline
        
         stage('Deploy Application To Mulesoft '){
         steps{
-		configFileProvider([configFile(fileId: 'e3590969-51e7-48ca-948d-8e3d73287173', variable: 'MAVEN_GLOBAL_SETTINGS')])
-		{
-        bat 'mvn package deploy -DmuleDeploy'
+        bat 'mvn package deploy -DmuleDeploy -Danypoint.userName=OssomVictory4 -Danypoint.password=Capg@1999'
         }
-        }
+        
         }
        
    
