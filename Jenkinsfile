@@ -1,6 +1,13 @@
 pipeline
 {
     agent any
+    
+    environment{
+        
+        userName=credentials('UserName')
+        password=credentials('Password')
+    }
+        
     stages{
         stage('Build Application'){
         steps{
@@ -17,7 +24,7 @@ pipeline
        
         stage('Deploy Application To Mulesoft '){
         steps{
-        bat 'mvn package deploy -DmuleDeploy -Danypoint.userName=OssomVictory4 -Danypoint.password=Capg@1999'
+            bat 'mvn package deploy -DmuleDeploy -Danypoint.userName=${userName} -Danypoint.password=${password}'
         }
         
         }
