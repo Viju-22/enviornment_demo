@@ -1,6 +1,11 @@
 pipeline
 {
     agent any
+    
+    environment {
+        env_qa = "QA"
+    }
+    
     stages{
         stage('Build Application'){
         steps{
@@ -15,13 +20,13 @@ pipeline
             }
         }
        
-        stage('Deploy to QA environment '){
-            
+        stage('Deploy to QA environment ')
+        {    
             when{
                 branch 'QA'
             }
         steps{
-        bat 'mvn package deploy -DmuleDeploy -Danypoint.userName=OssomVictory4 -Danypoint.password=Capg@1999'
+        bat 'mvn package deploy -DmuleDeploy -Danypoint.userName=OssomVictory4 -Danypoint.password=Capg@1999 -Denvironment=${env_qa}'
         }
         
         }
