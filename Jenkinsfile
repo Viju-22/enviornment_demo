@@ -15,7 +15,11 @@ pipeline
             }
         }
        
-        stage('Deploy Application To Mulesoft '){
+        stage('Deploy to QA environment '){
+            
+            when{
+                branch 'QA'
+            }
         steps{
         bat 'mvn package deploy -DmuleDeploy -Danypoint.userName=OssomVictory4 -Danypoint.password=Capg@1999'
         }
