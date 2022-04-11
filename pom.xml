@@ -40,7 +40,7 @@
 						<muleVersion>4.3.0</muleVersion>
 						<username>${anypoint.userName}</username>
 						<password>${anypoint.password}</password>
-						<applicationName>BuildSonarDeployVijay1</applicationName>
+						<applicationName>EnvDeploy1</applicationName>
 						<environment>DEV</environment>
 						<businessGroup>MuleSoft</businessGroup>
 						<workers>1</workers>
