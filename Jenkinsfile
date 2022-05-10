@@ -26,7 +26,7 @@ pipeline
                 branch 'QA'
             }
         steps{
-        bat 'mvn package deploy -DmuleDeploy -Danypoint.userName=OssomVictory4 -Danypoint.password=Capg@1999 -Denvironment=${env_qa}'
+        bat 'mvn package deploy -DmuleDeploy -Danypoint.userName=OssomVictory5 -Danypoint.password=Capg@1999 -Denvironment=${env_qa}'
         }
         
         }
