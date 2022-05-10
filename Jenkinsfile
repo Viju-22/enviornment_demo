@@ -4,7 +4,7 @@ pipeline
     
     environment{
         
-        username=credentials('UserName')
+        username=credentials('Uname')
         password=credentials('Password')
     }
         
